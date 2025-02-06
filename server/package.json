@@ -1,0 +1,28 @@
+{
+  "name": "wise.wallet",
+  "version": "1.0.0",
+  "main": "src/app.ts",
+  "author": "Samuel Rosa",
+  "license": "ISC",
+  "scripts": {
+    "dev": "nodemon --exec ts-node src/app.ts",
+    "build": "tsc -p .",
+    "start": "node build/app.js",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.3.1",
+    "argon2": "^0.41.1",
+    "fastify": "^5.2.1",
+    "jsonwebtoken": "^9.0.2",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.1",
+    "nodemon": "^3.1.9",
+    "prisma": "^6.3.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
