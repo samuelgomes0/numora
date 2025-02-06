@@ -1,16 +1,11 @@
 import { AppSidebar } from "@/components/Sidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import type { Metadata } from "next";
-import { Anek_Bangla, Inter, Vollkorn } from "next/font/google";
+import { Anek_Bangla, Inter } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const vollkorn = Vollkorn({
-  variable: "--font-vollkorn",
   subsets: ["latin"],
 });
 
@@ -32,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body
-        className={`${inter.variable} ${vollkorn.variable} ${anek.variable} m-auto w-4/5 bg-[#a3b18a] antialiased`}
+        className={`${inter.variable} ${anek.variable} bg-greenBackground m-auto w-4/5 antialiased`}
       >
         <SidebarProvider>
           <AppSidebar />

@@ -14,7 +14,7 @@ function NewTransactionDialog() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="bg-[#588157]">
+        <Button className="bg-callToAction">
           <PlusIcon /> Nova Transação
         </Button>
       </DialogTrigger>

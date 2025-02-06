@@ -67,11 +67,13 @@ export function AppSidebar() {
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <Link href="/dashboard">
-                <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+                <div className="bg-callToAction flex aspect-square size-8 items-center justify-center rounded-lg text-sidebar-primary-foreground">
                   <PiggyBankIcon className="size-4" />
                 </div>
-                <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="font-semibold">Wise Wallet</span>
+                <div>
+                  <span className="text-lg font-semibold text-black">
+                    Wise Wallet
+                  </span>
                 </div>
               </Link>
             </SidebarMenuButton>
@@ -116,7 +118,7 @@ export function AppSidebar() {
                   <span>Perfil</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <span>Billing</span>
+                  <span>Pagamento</span>
                 </DropdownMenuItem>
                 <SidebarSeparator />
                 <DropdownMenuItem className="text-red-600">
