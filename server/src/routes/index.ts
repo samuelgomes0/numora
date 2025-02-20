@@ -1,7 +1,9 @@
-import fastify, { FastifyInstance } from "fastify";
+import { FastifyInstance } from "fastify";
 
-const server = fastify();
+import userRoutes from "./user.route";
 
-export default async function routes(server: FastifyInstance) {
+async function routes(server: FastifyInstance) {
   server.register(userRoutes, { prefix: "/users" });
 }
+
+export default routes;
