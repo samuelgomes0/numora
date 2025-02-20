@@ -10,12 +10,12 @@ interface InfoCardProps {
 
 function InfoCard({ icon: Icon, iconColor, title, content }: InfoCardProps) {
   return (
-    <Card className="bg-whiteBackground w-full">
-      <CardHeader className="flex flex-row items-center gap-4">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-200">
+    <Card className="w-full bg-whiteBackground">
+      <CardHeader className="flex flex-row items-center justify-between gap-4">
+        <CardTitle className="text-lg font-medium">{title}</CardTitle>
+        <div className="flex items-center justify-center rounded-full bg-gray-200 p-3">
           <Icon size={20} color={iconColor} />
         </div>
-        <CardTitle className="text-lg font-medium">{title}</CardTitle>
       </CardHeader>
       <CardContent>
         <p className="font-anek text-3xl font-bold">
