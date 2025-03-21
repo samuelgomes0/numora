@@ -13,14 +13,13 @@ export default {
         anek: ["var(--font-anek)"],
       },
       colors: {
-        whiteBackground: "#f8f9fa",
-        greenBackground: "#90a955",
-        callToAction: "#1d3557",
+        darkBlueBackground: "#010104",
+        callToAction: "#00C87B",
 
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
-          DEFAULT: "hsl(var(--card))",
+          DEFAULT: "#040a1a",
           foreground: "hsl(var(--card-foreground))",
         },
         popover: {
@@ -28,7 +27,7 @@ export default {
           foreground: "hsl(var(--popover-foreground))",
         },
         primary: {
-          DEFAULT: "#1d3557",
+          DEFAULT: "#00C87B",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {

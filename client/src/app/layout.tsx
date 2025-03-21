@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body
-        className={`${inter.variable} ${anek.variable} m-auto w-4/5 bg-greenBackground antialiased`}
+        className={`${inter.variable} ${anek.variable} bg-darkBlueBackground m-auto p-4 antialiased`}
       >
         <ThemeProvider
           attribute="class"
