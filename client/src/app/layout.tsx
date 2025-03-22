@@ -1,3 +1,4 @@
+import FixedBottomBar from "@/components/FixedBottomBar";
 import { AppSidebar } from "@/components/Sidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { ThemeProvider } from "@/providers/ThemeProvider";
@@ -28,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body
-        className={`${inter.variable} ${anek.variable} bg-darkBlueBackground m-auto p-4 antialiased`}
+        className={`${inter.variable} ${anek.variable} bg-darkBlueBackground m-auto antialiased`}
       >
         <ThemeProvider
           attribute="class"
@@ -38,7 +39,8 @@ export default function RootLayout({
         >
           <SidebarProvider>
             <AppSidebar />
-            <main className="w-full">
+            <FixedBottomBar />
+            <main className="w-full p-4">
               {/* <SidebarTrigger /> */}
               {children}
             </main>

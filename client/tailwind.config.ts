@@ -15,11 +15,12 @@ export default {
       colors: {
         darkBlueBackground: "#010104",
         callToAction: "#00C87B",
+        darkCardBlueBackground: "#0c0f20",
 
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
-          DEFAULT: "#040a1a",
+          DEFAULT: "#0c0f20",
           foreground: "hsl(var(--card-foreground))",
         },
         popover: {
