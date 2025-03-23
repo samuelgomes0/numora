@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Calendar,
   ChevronUp,
@@ -30,11 +32,12 @@ import {
   SidebarSeparator,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const items = [
   {
     title: "Dashboard",
-    url: "dashboard",
+    url: "/",
     icon: Home,
   },
   {
@@ -60,14 +63,18 @@ const items = [
 ];
 
 export function AppSidebar() {
+  const pathName = usePathname();
+
+  const isPathActive = (path: string) => pathName === path;
+
   return (
-    <Sidebar className="w-72">
+    <Sidebar>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <Link href="/dashboard">
-                <div className="bg-callToAction flex aspect-square size-8 items-center justify-center rounded-lg text-sidebar-primary-foreground">
+                <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-callToAction text-sidebar-primary-foreground">
                   <PiggyBankIcon className="size-4" />
                 </div>
                 <div>
@@ -87,7 +94,12 @@ export function AppSidebar() {
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton
+                    asChild
+                    className={
+                      isPathActive(item.url) ? "bg-sidebar-accent" : ""
+                    }
+                  >
                     <Link href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>

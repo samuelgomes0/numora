@@ -1,6 +1,5 @@
-import FixedBottomBar from "@/components/FixedBottomBar";
 import { AppSidebar } from "@/components/Sidebar";
-import { SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import type { Metadata } from "next";
 import { Anek_Bangla, Inter } from "next/font/google";
@@ -18,7 +17,8 @@ const anek = Anek_Bangla({
 
 export const metadata: Metadata = {
   title: "Wise Wallet",
-  description: "A simple wallet app",
+  description:
+    "Wise Wallet é um sistema moderno e intuitivo para gestão de finanças pessoais, projetado para auxiliar usuários no controle de suas receitas, despesas e investimentos. O objetivo do projeto é fornecer uma visão clara e prática da saúde financeira do usuário, facilitando o planejamento financeiro e o alcance de metas.",
 };
 
 export default function RootLayout({
@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body
-        className={`${inter.variable} ${anek.variable} bg-darkBlueBackground m-auto antialiased`}
+        className={`${inter.variable} ${anek.variable} m-auto bg-darkBlueBackground antialiased`}
       >
         <ThemeProvider
           attribute="class"
@@ -39,9 +39,8 @@ export default function RootLayout({
         >
           <SidebarProvider>
             <AppSidebar />
-            <FixedBottomBar />
             <main className="w-full p-4">
-              {/* <SidebarTrigger /> */}
+              <SidebarTrigger />
               {children}
             </main>
           </SidebarProvider>

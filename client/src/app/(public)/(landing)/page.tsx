@@ -1,4 +1,3 @@
-import FixedTopBar from "@/components/FixedTopBar";
 import OverviewCards from "@/components/OverviewCards";
 
 function Landing() {
@@ -10,7 +9,6 @@ function Landing() {
 
   return (
     <div className="grid gap-4">
-      <FixedTopBar />
       <div className="flex items-center justify-between">
         <h1 className="text-2xl">
           Olá, <span className="font-bold">{userAccount.name}</span>!
