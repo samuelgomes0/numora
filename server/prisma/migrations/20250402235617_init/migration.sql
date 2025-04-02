@@ -21,7 +21,7 @@ CREATE TABLE "Account" (
     "id" TEXT NOT NULL,
     "userId" TEXT NOT NULL,
     "name" TEXT NOT NULL,
-    "balance" DECIMAL(65,30) NOT NULL DEFAULT 0,
+    "balance" DOUBLE PRECISION NOT NULL DEFAULT 0,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -33,7 +33,7 @@ CREATE TABLE "Transaction" (
     "id" TEXT NOT NULL,
     "accountId" TEXT NOT NULL,
     "categoryId" TEXT,
-    "amount" DECIMAL(65,30) NOT NULL,
+    "amount" DOUBLE PRECISION NOT NULL,
     "type" "TransactionType" NOT NULL,
     "description" TEXT,
     "date" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
