@@ -1,14 +1,25 @@
-import { IAccount } from "./account.interface";
+import {
+  IAccount,
+  IAccountCreate,
+  IAccountRepository,
+} from "./account.interface";
 import { ICategory } from "./category.interface";
-import { ETransactionType, ITransaction } from "./transaction.interface";
-import { IUser, IUserDTO, IUserRepository } from "./user.interface";
+import {
+  ITransaction,
+  ITransactionCreate,
+  ITransactionRepository,
+} from "./transaction.interface";
+import { IUser, IUserCreate, IUserRepository } from "./user.interface";
 
 export {
-  ETransactionType,
   IAccount,
+  IAccountCreate,
+  IAccountRepository,
   ICategory,
   ITransaction,
+  ITransactionCreate,
+  ITransactionRepository,
   IUser,
-  IUserDTO,
+  IUserCreate,
   IUserRepository,
 };

@@ -6,8 +6,18 @@ interface IAccount {
   userId: string;
   name: string;
   balance: number;
-  transactions: ITransaction[];
-  categories: ICategory[];
+  transactions?: ITransaction[];
+  categories?: ICategory[];
 }
 
-export { IAccount };
+interface IAccountCreate {
+  userId: string;
+  name: string;
+}
+
+interface IAccountRepository {
+  findAll(): Promise<IAccount[]>;
+  create(data: IAccountCreate): Promise<IAccount>;
+}
+
+export { IAccount, IAccountCreate, IAccountRepository };

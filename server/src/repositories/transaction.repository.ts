@@ -1,10 +1,11 @@
 import { prisma } from "../database/prisma-client";
 import {
   ITransaction,
+  ITransactionCreate,
   ITransactionRepository,
 } from "../interfaces/transaction.interface";
 
-export class TransactionRepository implements ITransactionRepository {
+export default class TransactionRepository implements ITransactionRepository {
   findAll(): Promise<ITransaction[]> {
     return prisma.transaction.findMany();
   }
@@ -13,7 +14,7 @@ export class TransactionRepository implements ITransactionRepository {
     return prisma.transaction.findUnique({ where: { id } });
   }
 
-  create(transaction: ITransaction): Promise<ITransaction> {
-    return prisma.transaction.create({ data: transaction });
+  create(data: ITransactionCreate): Promise<ITransaction> {
+    return prisma.transaction.create({ data: data });
   }
 }

@@ -1,7 +1,7 @@
 import { prisma } from "../database/prisma-client";
-import { IUser, IUserDTO, IUserRepository } from "../interfaces";
+import { IUser, IUserCreate, IUserRepository } from "../interfaces";
 
-export class UserRepository implements IUserRepository {
+export default class UserRepository implements IUserRepository {
   findAll(): Promise<IUser[]> {
     return prisma.user.findMany();
   }
@@ -14,11 +14,11 @@ export class UserRepository implements IUserRepository {
     return prisma.user.findUnique({ where: { email } });
   }
 
-  create(user: IUserDTO): Promise<IUser> {
+  create(user: IUserCreate): Promise<IUser> {
     return prisma.user.create({ data: user });
   }
 
-  update(id: string, user: IUserDTO): Promise<IUser> {
+  update(id: string, user: IUserCreate): Promise<IUser> {
     return prisma.user.update({ where: { id }, data: user });
   }
 

@@ -1,32 +1,25 @@
+import { TransactionType } from "@prisma/client";
+
 interface ITransaction {
   id: string;
   description: string | null;
   amount: number;
   date: Date;
-  type: ETransactionType;
-}
-
-enum ETransactionType {
-  INCOME = "INCOME",
-  EXPENSE = "EXPENSE",
+  type: TransactionType;
 }
 
 interface ITransactionCreate {
   description: string;
   amount: number;
   date: Date;
-  type: ETransactionType;
+  type: TransactionType;
+  accountId: string;
 }
 
 interface ITransactionRepository {
   findAll(): Promise<ITransaction[]>;
   findById(id: string): Promise<ITransaction | null>;
-  create(transaction: ITransactionCreate): Promise<ITransaction>;
+  create(data: ITransactionCreate): Promise<ITransaction>;
 }
 
-export {
-  ETransactionType,
-  ITransaction,
-  ITransactionCreate,
-  ITransactionRepository,
-};
+export { ITransaction, ITransactionCreate, ITransactionRepository };

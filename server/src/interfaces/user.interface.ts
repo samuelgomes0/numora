@@ -8,7 +8,7 @@ interface IUser {
   accounts?: IAccount[];
 }
 
-interface IUserDTO {
+interface IUserCreate {
   name: string;
   email: string;
   password: string;
@@ -18,9 +18,9 @@ interface IUserRepository {
   findAll(): Promise<IUser[]>;
   findById(id: string): Promise<IUser | null>;
   findByEmail(email: string): Promise<IUser | null>;
-  create(user: IUserDTO): Promise<IUser>;
-  update(id: string, user: IUserDTO): Promise<IUser>;
+  create(user: IUserCreate): Promise<IUser>;
+  update(id: string, user: IUserCreate): Promise<IUser>;
   delete(id: string): Promise<void>;
 }
 
-export { IUser, IUserDTO, IUserRepository };
+export { IUser, IUserCreate, IUserRepository };
