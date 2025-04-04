@@ -1,18 +1,11 @@
 import z from "zod";
 
 const transactionCreateSchema = z.object({
-  description: z
-    .string()
-    .min(3, {
-      message: "Name must be at least 3 characters long",
-    })
-    .max(255, {
-      message: "Name must be at most 255 characters long",
-    }),
+  description: z.string(),
   amount: z.number(),
-  date: z.date(),
-  type: z.string(),
-  accountId: z.string(),
+  date: z.string().date(),
+  transactionType: z.enum(["INCOME", "EXPENSE"]),
+  accountId: z.string().uuid(),
 });
 
 export default transactionCreateSchema;

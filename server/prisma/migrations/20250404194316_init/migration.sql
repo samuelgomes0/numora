@@ -1,8 +1,5 @@
 -- CreateEnum
-CREATE TYPE "TransactionType" AS ENUM ('INCOME', 'EXPENSE');
-
--- CreateEnum
-CREATE TYPE "CategoryType" AS ENUM ('INCOME', 'EXPENSE');
+CREATE TYPE "TransactionType" AS ENUM ('income', 'expense');
 
 -- CreateTable
 CREATE TABLE "User" (
@@ -34,10 +31,11 @@ CREATE TABLE "Transaction" (
     "accountId" TEXT NOT NULL,
     "categoryId" TEXT,
     "amount" DOUBLE PRECISION NOT NULL,
-    "type" "TransactionType" NOT NULL,
+    "transactionType" "TransactionType" NOT NULL,
     "description" TEXT,
-    "date" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "date" TIMESTAMP(3) NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Transaction_pkey" PRIMARY KEY ("id")
 );
@@ -45,10 +43,10 @@ CREATE TABLE "Transaction" (
 -- CreateTable
 CREATE TABLE "Category" (
     "id" TEXT NOT NULL,
-    "userId" TEXT NOT NULL,
     "name" TEXT NOT NULL,
+    "accountId" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "accountId" TEXT,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Category_pkey" PRIMARY KEY ("id")
 );
@@ -58,9 +56,6 @@ CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Account_userId_name_key" ON "Account"("userId", "name");
-
--- CreateIndex
-CREATE UNIQUE INDEX "Category_userId_name_key" ON "Category"("userId", "name");
 
 -- AddForeignKey
 ALTER TABLE "Account" ADD CONSTRAINT "Account_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
@@ -72,4 +67,4 @@ ALTER TABLE "Transaction" ADD CONSTRAINT "Transaction_accountId_fkey" FOREIGN KE
 ALTER TABLE "Transaction" ADD CONSTRAINT "Transaction_categoryId_fkey" FOREIGN KEY ("categoryId") REFERENCES "Category"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Category" ADD CONSTRAINT "Category_accountId_fkey" FOREIGN KEY ("accountId") REFERENCES "Account"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "Category" ADD CONSTRAINT "Category_accountId_fkey" FOREIGN KEY ("accountId") REFERENCES "Account"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

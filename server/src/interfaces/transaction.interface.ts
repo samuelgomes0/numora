@@ -5,14 +5,14 @@ interface ITransaction {
   description: string | null;
   amount: number;
   date: Date;
-  type: TransactionType;
+  transactionType: TransactionType;
 }
 
 interface ITransactionCreate {
   description: string;
   amount: number;
-  date: Date;
-  type: TransactionType;
+  date: Date | string;
+  transactionType: TransactionType;
   accountId: string;
 }
 

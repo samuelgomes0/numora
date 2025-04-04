@@ -14,11 +14,11 @@ const userCreateSchema = z.object({
   }),
   password: z
     .string()
-    .min(6, {
-      message: "Password must be at least 6 characters long",
+    .min(8, {
+      message: "Password must be at least 8 characters long",
     })
-    .max(255, {
-      message: "Password must be at most 255 characters long",
+    .max(32, {
+      message: "Password must be at most 32 characters long",
     }),
 });
 

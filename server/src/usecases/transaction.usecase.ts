@@ -19,13 +19,13 @@ class TransactionUseCase implements TransactionRepository {
   }
 
   async create(data: ITransactionCreate): Promise<ITransaction> {
-    const { description, amount, date, type, accountId } = data;
+    const { description, amount, date, transactionType, accountId } = data;
 
     const newTransaction = await this.transactionRepository.create({
       description,
       amount,
       date,
-      type,
+      transactionType,
       accountId,
     });
 

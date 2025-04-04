@@ -12,9 +12,9 @@ model User {
   name      String
   email     String    @unique
   password  String
+  accounts  Account[]
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
-  accounts  Account[]
 }
 
 model Account {
@@ -22,46 +22,40 @@ model Account {
   userId       String
   name         String
   balance      Float         @default(0)
-  createdAt    DateTime      @default(now())
-  updatedAt    DateTime      @updatedAt
   user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
   categories   Category[]
   transactions Transaction[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
 
   @@unique([userId, name])
 }
 
 model Transaction {
-  id          String          @id @default(uuid())
-  accountId   String
-  categoryId  String?
-  amount      Float
-  type        TransactionType
-  description String?
-  date        DateTime        @default(now())
-  createdAt   DateTime        @default(now())
-  account     Account         @relation(fields: [accountId], references: [id], onDelete: Cascade)
-  category    Category?       @relation(fields: [categoryId], references: [id])
+  id              String          @id @default(uuid())
+  accountId       String
+  categoryId      String?
+  amount          Float
+  transactionType TransactionType
+  description     String?
+  date            DateTime
+  account         Account         @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  category        Category?       @relation(fields: [categoryId], references: [id])
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
 }
 
 model Category {
   id           String        @id @default(uuid())
-  userId       String
   name         String
-  createdAt    DateTime      @default(now())
-  accountId    String?
-  Account      Account?      @relation(fields: [accountId], references: [id])
+  accountId    String
+  account      Account       @relation(fields: [accountId], references: [id])
   transactions Transaction[]
-
-  @@unique([userId, name])
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
 }
 
 enum TransactionType {
-  INCOME
-  EXPENSE
-}
-
-enum CategoryType {
-  INCOME
-  EXPENSE
+  INCOME  @map("income")
+  EXPENSE @map("expense")
 }
