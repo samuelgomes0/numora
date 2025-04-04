@@ -1,7 +1,7 @@
 import { IUser } from "../interfaces";
 import { UserRepository } from "../repositories";
 
-export class UserUseCase {
+class UserUseCase {
   private readonly userRepository: UserRepository;
 
   constructor(userRepository: UserRepository) {
@@ -54,3 +54,5 @@ export class UserUseCase {
     return userData;
   }
 }
+
+export default UserUseCase;

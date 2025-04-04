@@ -22,4 +22,4 @@ const userCreateSchema = z.object({
     }),
 });
 
-export { userCreateSchema };
+export default userCreateSchema;

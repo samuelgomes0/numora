@@ -1,7 +1,7 @@
 import { IAccount, IAccountCreate } from "../interfaces";
 import { AccountRepository } from "../repositories";
 
-export default class AccountUseCase implements AccountRepository {
+class AccountUseCase implements AccountRepository {
   private readonly accountRepository: AccountRepository;
 
   constructor(accountRepository: AccountRepository) {
@@ -18,3 +18,5 @@ export default class AccountUseCase implements AccountRepository {
     return account;
   }
 }
+
+export default AccountUseCase;

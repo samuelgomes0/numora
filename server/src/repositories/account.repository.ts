@@ -1,11 +1,7 @@
 import { prisma } from "../database/prisma-client";
-import {
-  IAccount,
-  IAccountCreate,
-  IAccountRepository,
-} from "../interfaces/account.interface";
+import { IAccount, IAccountCreate, IAccountRepository } from "../interfaces";
 
-export default class AccountRepository implements IAccountRepository {
+class AccountRepository implements IAccountRepository {
   findAll(): Promise<IAccount[]> {
     return prisma.account.findMany();
   }
@@ -14,3 +10,5 @@ export default class AccountRepository implements IAccountRepository {
     return prisma.account.create({ data });
   }
 }
+
+export default AccountRepository;

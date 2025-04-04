@@ -15,4 +15,4 @@ const transactionCreateSchema = z.object({
   accountId: z.string(),
 });
 
-export { transactionCreateSchema };
+export default transactionCreateSchema;

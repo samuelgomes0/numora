@@ -1,7 +1,7 @@
 import { prisma } from "../database/prisma-client";
 import { IUser, IUserCreate, IUserRepository } from "../interfaces";
 
-export default class UserRepository implements IUserRepository {
+class UserRepository implements IUserRepository {
   findAll(): Promise<IUser[]> {
     return prisma.user.findMany();
   }
@@ -26,3 +26,5 @@ export default class UserRepository implements IUserRepository {
     await prisma.user.delete({ where: { id } });
   }
 }
+
+export default UserRepository;

@@ -1,6 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { TransactionRepository } from "../repositories";
-import { TransactionUseCase } from "../usecases/transaction.usecase";
+import { TransactionUseCase } from "../usecases/";
 
 async function transactionRoutes(server: FastifyInstance) {
   const transactionRepository = new TransactionRepository();

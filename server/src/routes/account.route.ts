@@ -1,8 +1,8 @@
 import { FastifyInstance } from "fastify";
 import z from "zod";
 import { AccountRepository } from "../repositories";
-import { accountCreateSchema } from "../schemas/accountCreate.schema";
-import AccountUseCase from "../usecases/account.usecase";
+import { accountCreateSchema } from "../schemas";
+import { AccountUseCase } from "../usecases";
 
 function accountRoutes(server: FastifyInstance) {
   const accountRepository = new AccountRepository();

@@ -3,9 +3,9 @@ import {
   ITransaction,
   ITransactionCreate,
   ITransactionRepository,
-} from "../interfaces/transaction.interface";
+} from "../interfaces";
 
-export default class TransactionRepository implements ITransactionRepository {
+class TransactionRepository implements ITransactionRepository {
   findAll(): Promise<ITransaction[]> {
     return prisma.transaction.findMany();
   }
@@ -18,3 +18,5 @@ export default class TransactionRepository implements ITransactionRepository {
     return prisma.transaction.create({ data: data });
   }
 }
+
+export default TransactionRepository;

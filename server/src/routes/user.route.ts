@@ -1,7 +1,7 @@
 import { FastifyInstance } from "fastify";
 import z from "zod";
 import { UserRepository } from "../repositories";
-import { userCreateSchema } from "../schemas/userCreate.schema";
+import { userCreateSchema } from "../schemas";
 import { UserUseCase } from "../usecases";
 
 async function userRoutes(server: FastifyInstance) {

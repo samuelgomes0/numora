@@ -7,4 +7,4 @@ const accountCreateSchema = z.object({
   }),
 });
 
-export { accountCreateSchema };
+export default accountCreateSchema;

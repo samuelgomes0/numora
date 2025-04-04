@@ -33,4 +33,4 @@ class TransactionUseCase implements TransactionRepository {
   }
 }
 
-export { TransactionUseCase };
+export default TransactionUseCase;
