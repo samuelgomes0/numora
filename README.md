@@ -1,120 +1,148 @@
-# Wise Wallet
+# 💼 Wise Wallet – Gestão Financeira Inteligente
 
-**Organize suas finanças, alcance seus objetivos.**
+> Um SaaS moderno, seguro e escalável para controle financeiro pessoal e familiar.  
+> Construa hábitos saudáveis, planeje seu orçamento e acompanhe sua evolução financeira com clareza.
 
-Wise Wallet é um sistema moderno e intuitivo para gestão de finanças pessoais, projetado para auxiliar usuários no controle de suas receitas, despesas e investimentos. O objetivo do projeto é fornecer uma visão clara e prática da saúde financeira do usuário, facilitando o planejamento financeiro e o alcance de metas.
+---
 
-## Tecnologias Utilizadas
+## 📌 Visão Geral
 
-- **Front-end**
-  - [TypeScript](https://www.typescriptlang.org/)
-  - [React](https://reactjs.org/)
-  - [Next.js](https://nextjs.org/)
-  - [Tailwind CSS](https://tailwindcss.com/)
-  - [Shadcn/UI](https://shadcn.dev/)
+FinanSaaS é uma plataforma de gestão financeira pessoal construída com foco em **usabilidade**, **segurança** e **escalabilidade**.  
+Com ele, usuários podem registrar despesas, acompanhar receitas, definir metas e gerar relatórios com base em seus hábitos financeiros.
 
-- **Back-end**
-  - [TypeScript](https://www.typescriptlang.org/)
-  - [Node.js](https://nodejs.org/)
-  - [Fastify](https://www.fastify.io/)
-  - [Prisma ORM](https://www.prisma.io/)
-  - [PostgreSQL](https://www.postgresql.org/)
+---
 
-## Futuras Funcionalidades
+## 🚀 Funcionalidades Principais
 
-- **Controle de Receitas e Despesas**  
-  Permite adicionar, editar e categorizar entradas e saídas financeiras, com detalhamento por data, categoria e descrição.
+- ✅ Cadastro de receitas e despesas com categorização
+- ✅ Planejamento orçamentário mensal
+- ✅ Dashboard interativo com gráficos e indicadores
+- ✅ Lançamentos recorrentes e alertas de vencimento
+- ✅ Exportação de relatórios (.PDF, .CSV)
+- ✅ Multiusuário com permissões
+- ✅ Integração com serviços de e-mail e pagamento
 
-- **Dashboard Financeiro Dinâmico**  
-  Visualização gráfica e intuitiva do saldo atual, fluxo de caixa e distribuição de gastos por categoria.
+---
 
-- **Metas Financeiras Personalizadas**  
-  Usuários podem definir metas como reserva de emergência, viagens ou aquisição de bens, acompanhando seu progresso ao longo do tempo.
+## 🛠️ Tecnologias Utilizadas
 
-- **Histórico e Relatórios**  
-  Acompanhamento detalhado do histórico de transações, com geração de relatórios mensais ou anuais.
+### 🔹 Frontend
 
-- **Gerenciamento de Usuários e Autenticação**  
-  Cadastro, login e segurança com tokens de autenticação para garantir a privacidade dos dados financeiros.
+- Next.js (SSR e desempenho)
+- React + TailwindCSS
+- React Query
+- Recharts
 
-## Instalação
+### 🔹 Backend
 
-Siga os passos abaixo para rodar o projeto localmente.
+- NestJS
+- PostgreSQL + Prisma
+- Redis (cache e sessões)
+- JWT + Refresh Token
+- BullMQ (filas)
 
-### Pré-requisitos
+### 🔹 DevOps e Infraestrutura
 
-- [Node.js](https://nodejs.org/)
-- [PostgreSQL](https://www.postgresql.org/)
-- [npm](https://www.npmjs.com/) ou [Yarn](https://yarnpkg.com/)
+- Docker + Docker Compose
+- GitHub Actions (CI/CD)
+- Railway / Fly.io (backend), Vercel (frontend)
+- Sentry, Grafana, Prometheus
 
-### Passos para rodar o projeto
+---
 
-1. Clone o repositório:
+## 🧱 Arquitetura
 
-    ```bash
-    git clone https://github.com/samuelgomes0/wise.wallet.git
-    ```
+\`\`\`
+Frontend (Next.js)
+⬇
+API Gateway (Edge Functions ou Middleware)
+⬇
+Backend (NestJS)
+⬇
+Banco de Dados (PostgreSQL) + Redis
+⬇
+Serviços externos (S3, Stripe, SES, etc.)
+\`\`\`
 
-2. Acesse os diretórios do projeto:
+---
 
-    ```bash
-    cd wise.wallet/client
-    cd wise.wallet/server
-    ```
+## 🧩 Estrutura de Diretórios
 
-3. Instale as dependências em ambos os diretórios:
+\`\`\`
+src/
+├── auth/ # Login, registro, autenticação
+├── users/ # Perfil do usuário
+├── transactions/ # Receitas e despesas
+├── budgets/ # Orçamento mensal
+├── reports/ # Relatórios e gráficos
+├── billing/ # Cobrança e planos (Stripe)
+├── notifications/ # E-mail e push
+├── admin/ # Administração do sistema
+└── common/ # Utilitários e configurações globais
+\`\`\`
 
-    ```bash
-    npm install
-    ```
+---
 
-4. Configure os arquivos `.env` com as variáveis de ambiente necessárias. Exemplo:
+## 🔐 Segurança
 
-    ```bash
-    DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/DATABASE
-    JWT_SECRET=suasecretkey
-    ```
+- Criptografia em trânsito (TLS) e em repouso
+- Autenticação JWT + 2FA (para contas avançadas)
+- Controle de acesso baseado em papéis (RBAC)
+- Rate limiting e proteção contra brute-force
+- Monitoramento de atividade suspeita
 
-5. Rode as migrações do Prisma no servidor para configurar o banco de dados:
+---
 
-    ```bash
-    npx prisma migrate dev
-    ```
+## 🌱 Como Executar Localmente
 
-6. Inicie os ambientes de desenvolvimento em ambos os diretórios:
+\`\`\`bash
 
-    ```bash
-    npm run dev
-    ```
+# Clone o projeto
 
-7. Acesse o projeto no navegador:
+git clone https://github.com/seu-usuario/finansaas.git
+cd finansaas
 
-    ```
-    http://localhost:3000
-    ```
+# Instale as dependências
 
-## Contribuição
+npm install
 
-Contribuições são muito bem-vindas! Caso deseje colaborar com o projeto:
+# Copie e configure as variáveis de ambiente
 
-1. Faça um fork do repositório.
+cp .env.example .env
 
-2. Crie uma nova branch para sua feature ou correção:
+# Suba os serviços
 
-    ```bash
-    git checkout -b minha-feature
-    ```
+docker-compose up -d
 
-3. Commit suas alterações:
+# Rode as migrations
 
-    ```bash
-    git commit -m 'Adicionar nova feature'
-    ```
+npx prisma migrate dev
 
-4. Faça push para sua branch:
+# Inicie a aplicação
 
-    ```bash
-    git push origin minha-feature
-    ```
+npm run dev
+\`\`\`
 
-5. Abra um Pull Request.
+---
+
+## 📍 Roadmap
+
+- [x] MVP com controle de transações
+- [ ] Orçamentos mensais e metas
+- [ ] App mobile (React Native)
+- [ ] PWA com suporte offline
+- [ ] Análise inteligente de hábitos de consumo
+- [ ] Integração bancária via Open Finance
+
+---
+
+## 🤝 Contribuições
+
+Contribuições são bem-vindas!  
+Para contribuir, por favor abra uma issue ou envie um pull request com melhorias, correções ou novas funcionalidades.
+
+---
+
+## 📄 Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
