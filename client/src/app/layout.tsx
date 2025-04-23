@@ -1,8 +1,6 @@
-import { AppSidebar } from "@/components/Sidebar";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { ThemeProvider } from "@/providers/ThemeProvider";
+import ThemeProvider from "@/components/ThemeProvider";
 import type { Metadata } from "next";
-import { Anek_Bangla, Inter } from "next/font/google";
+import { Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -10,15 +8,15 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const anek = Anek_Bangla({
-  variable: "--font-anek",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Wise Wallet",
+  title: "Numora",
   description:
-    "Wise Wallet é um sistema moderno e intuitivo para gestão de finanças pessoais, projetado para auxiliar usuários no controle de suas receitas, despesas e investimentos. O objetivo do projeto é fornecer uma visão clara e prática da saúde financeira do usuário, facilitando o planejamento financeiro e o alcance de metas.",
+    "Organize suas finanças, alcance seus objetivos. Um sistema moderno e intuitivo para gestão de finanças pessoais.",
 };
 
 export default function RootLayout({
@@ -27,23 +25,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
-      <body
-        className={`${inter.variable} ${anek.variable} m-auto bg-darkBlueBackground antialiased`}
-      >
+    <html lang="pt-br" suppressHydrationWarning>
+      <body className={`${geistMono.variable} ${inter.className} antialiased`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <SidebarProvider>
-            <AppSidebar />
-            <main className="w-full p-4">
-              <SidebarTrigger />
-              {children}
-            </main>
-          </SidebarProvider>
+          {children}
         </ThemeProvider>
       </body>
     </html>
