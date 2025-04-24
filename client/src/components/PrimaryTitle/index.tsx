@@ -9,7 +9,7 @@ function PrimaryTitle({ text, className }: PrimaryTitleProps) {
   return (
     <h1
       className={cn(
-        "scroll-m-20 text-6xl font-extrabold tracking-tight lg:text-5xl bg-gradient-to-br from-neutral-400 to-black bg-clip-text text-transparent dark:from-white dark:to-neutral-600",
+        "scroll-m-20 text-6xl font-extrabold tracking-tight lg:text-5xl bg-gradient-to-br from-neutral-400 to-black bg-clip-text text-transparent dark:from-white dark:to-neutral-600 capitalize",
         className
       )}
     >
